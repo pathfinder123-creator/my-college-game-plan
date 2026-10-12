@@ -1,4 +1,4 @@
-const CACHE='my-college-game-plan-v1';
+const CACHE='my-college-game-plan-v2';
 const FILES=['./','./index.html','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./apple-touch-icon.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)));self.skipWaiting()});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('my-college-game-plan-')&&k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim()});
